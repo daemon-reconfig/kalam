@@ -7,7 +7,8 @@ fn main() -> eframe::Result<()> {
         .with_transparent(true)
         .with_decorations(false)
         .with_always_on_top()
-        .with_fullscreen(true);
+        .with_window_level(egui::WindowLevel::AlwaysOnTop)
+        .with_maximized(true);
 
     let native_options = eframe::NativeOptions {
         viewport,

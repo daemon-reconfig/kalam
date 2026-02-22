@@ -4,7 +4,7 @@ OpenPen is a fully open-source desktop annotation app inspired by Epic Pen.
 
 ## Current features
 
-- Transparent always-on-top fullscreen overlay window.
+- Transparent always-on-top borderless overlay window (maximized, not macOS fullscreen-space mode).
 - Draggable bottom toolbar.
 - Tools:
   - **Mouse** (no drawing; safe mode that keeps toolbar clickable)
@@ -27,3 +27,5 @@ OpenPen is a fully open-source desktop annotation app inspired by Epic Pen.
 ## Important limitation
 
 True overlay over exclusive fullscreen apps is OS/compositor dependent and cannot be guaranteed by a regular desktop window across all machines.
+
+On macOS, fullscreen apps use separate Spaces. OpenPen now avoids entering fullscreen-space mode itself (uses maximized borderless window), which is the safer overlay behavior for most setups; however, strict overlay above every exclusive fullscreen app is still constrained by macOS window manager rules.
