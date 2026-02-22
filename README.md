@@ -1,64 +1,29 @@
 # OpenPen
 
 OpenPen is a fully open-source desktop annotation app inspired by Epic Pen.
-It provides a transparent, always-on-top drawing layer so you can sketch over any app during demos, screen recordings, and teaching sessions.
 
-## Goals
+## Current features
 
-- ✅ Cross-platform: macOS (Intel + Apple Silicon) and Windows.
-- ✅ Zero proprietary lock-in: MIT licensed.
-- ✅ Lightweight native runtime (Rust + egui/eframe).
-- ✅ Core pen workflow: color palette, thickness, undo/redo, clear.
-- ✅ Optional click-through mode.
+- Transparent always-on-top fullscreen overlay window.
+- Draggable bottom toolbar.
+- Tools:
+  - **Mouse** (no drawing; safe mode that keeps toolbar clickable)
+  - **Pen** with color popup and thickness control
+  - **Polygon** tool (click points, press Enter to close)
+  - **Text** tool (click canvas to place text boxes)
+  - **Eraser** with adjustable radius
+- Undo/redo/clear.
 
-## Current status
+## Hotkeys
 
-This repository contains an MVP desktop app with:
+- `1` / `F1`: Pen
+- `2` / `F2`: Polygon
+- `3` / `F3`: Text
+- `4` / `F4`: Mouse
+- `5` / `F5`: Eraser
+- `Enter`: finalize polygon
+- `Esc`: quit
 
-- Transparent overlay window.
-- Freehand drawing.
-- Adjustable thickness and multiple colors.
-- Undo, redo, and clear controls.
-- Click-through toggle using viewport mouse passthrough.
+## Important limitation
 
-## Build and run
-
-### Prerequisites
-
-- Rust toolchain (stable), installed via [rustup](https://rustup.rs/)
-
-### Development
-
-```bash
-cargo run
-```
-
-### Release build
-
-```bash
-cargo build --release
-```
-
-## Packaging notes
-
-To distribute for each target platform:
-
-- macOS Intel: `x86_64-apple-darwin`
-- macOS Apple Silicon: `aarch64-apple-darwin`
-- Windows: `x86_64-pc-windows-msvc`
-
-You can cross-compile with Rust target toolchains and package signed binaries via CI.
-
-## Roadmap
-
-- [ ] Eraser tool.
-- [ ] Global hotkeys to toggle drawing mode.
-- [ ] Better highlighter (alpha blend stroke presets).
-- [ ] Multi-monitor persistence and region snapshots.
-- [ ] Export/import annotations to JSON.
-
-Contributions are welcome.
-
-
-
-testing
+True overlay over exclusive fullscreen apps is OS/compositor dependent and cannot be guaranteed by a regular desktop window across all machines.
