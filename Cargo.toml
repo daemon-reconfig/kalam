@@ -1,0 +1,17 @@
+[package]
+name = "openpen"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Open-source cross-platform screen annotation app inspired by Epic Pen"
+repository = "https://github.com/example/openpen"
+
+[dependencies]
+eframe = { version = "0.27", default-features = true }
+egui = "0.27"
+serde = { version = "1", features = ["derive"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
